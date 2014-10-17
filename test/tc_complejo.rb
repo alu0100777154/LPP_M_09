@@ -1,20 +1,17 @@
-require "../lib/complejo"
-require "testcase"
+require '../lib/complejo'
+require 'test/unit'
 
 
 class TestComplejo < Test::Unit::TestCase
   def setup
-    @origen = Complejo.new(0,0)
-    @unidad = Complejo.new(1,1)
+    @v1 = Complejo.new(1,6)
+    @v2 = Complejo.new(5,3)
   end
   def tear_down
     # nothing
   end
   def test_simple
-    assert_equal("(0,0)", @origen.to_s)
-    assert_equal("(5,5)", (@unidad*5).to_s)
-    assert_equal("(-1,-1)", (-@unidad).to_s)
-    assert_equal("(1,1)",(@origen+@unidad).to_s)
+	assert
   end
   def test_type_check
     assert_raise(RuntimeError) {Complejo.new('1','1')}
