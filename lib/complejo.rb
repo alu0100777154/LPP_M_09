@@ -28,4 +28,3 @@ class Complejo
         puts "#{@x},#{@y}i" 
     end 
 end
-    
