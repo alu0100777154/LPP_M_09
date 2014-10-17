@@ -1,4 +1,5 @@
 #Clase numero complejo
+require 'mathn'
 
 class Complejo
     attr_reader :x, :y
@@ -14,38 +15,17 @@ class Complejo
         end
     end
     def /(var)
-           Complejo.new(((var.x*@x)+(var.y*@y)/(var.x**2+var.y**2)), 
-                        ((var.x*@y)-(var.y*@x)/(var.x**2+var.y**2)))
+           Complejo.new((Rational(((var.x*@x)+(var.y*@y)),((var.x)**2+(var.y)**2))), 
+                        Rational(((var.x*@y)-(var.y*@x)),((var.x)**2+(var.y)**2)))
     end
     def +(var)
             Complejo.new(var.x + @x, var.y + @y)
     end
     def -(var)
              Complejo.new(@x - var.x, @y - var.y)
-    end  
+    end
+    def to_s
+        puts "#{@x},#{@y}i" 
+    end 
 end
-
-    @origen=Complejo.new 0,0
-    @unidad=Complejo.new 1,1
-    
-    x=@unidad+@unidad
-    
-    y=@unidad*2-@unidad
-    
-    z=(Complejo.new 2,5)*(Complejo.new 3,4)
-    
-    w=(Complejo.new 3,2)/(Complejo.new 1,-2)
-    
-    puts x.x
-    puts x.y
-    
-    puts y.x
-    puts y.y
-    
-    puts z.x
-    puts z.y
-    
-    puts 'w'
-    puts w.x
-    puts w.y
     
